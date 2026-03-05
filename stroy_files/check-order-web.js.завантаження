@@ -1,0 +1,55 @@
+var PM_ADAPTER = {
+    _u: window.location.href,
+
+    resetForm: function(){
+        window.location.href = PM_ADAPTER._u.split('?')[0];
+    },
+
+    sendForm: function(t){
+        var $this = $(t);
+        var $block = $this.closest('#pm-wrap');
+        var $form = $this.parents('form');
+        var err = [];
+
+        var orderId = $block.find('[name="order_id"]');
+        var clientId = $block.find('[name="client_id"]');
+        var phone = $block.find('[name="client_phone"]');
+
+        if(clientId.size())
+            if(!clientId.val())
+                err.push('ИД клента');
+
+        if(orderId.size())
+            if(!orderId.val())
+                err.push('номер заказа');
+
+        if(phone.size())
+            if(!phone.val())
+                err.push('номер телефона');
+
+        if(err.length > 0)
+            return alert('Введите '+err.join('/')+'!');
+
+        var $overload = $('<div class="overlay"> <i class="fa fa-refresh fa-spin"></i> </div>');
+        $block.find('.boxy').append($overload);
+        var data = $form.serialize();
+        $.get(PM_ADAPTER._u, data).done(function(result){
+            var $result = $('<div>'+result+'</div>');
+            var $alerts = $result.find('.sys-alerts .error-item');
+            if($alerts.size()){
+                var errtext = '';
+                $alerts.each(function(){
+                    errtext += $(this).text()+'\n';
+                });
+                if(errtext){
+                    alert(errtext);
+                    orderId.val('');
+                }
+                $overload.remove();
+                return false;
+            }
+            $block.html($result.find('#pm-wrap').html());
+        });
+    }
+};
+

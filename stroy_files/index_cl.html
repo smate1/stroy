@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://alex23.fvds.ru/index_cl -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <title>Проверка заказа</title>
+
+        <link rel="icon" type="image/png" href="https://alex23.fvds.ru/images/faviconv2/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/svg+xml" href="https://alex23.fvds.ru/images/faviconv2/favicon.svg">
+        <link rel="shortcut icon" href="https://alex23.fvds.ru/images/faviconv2/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://alex23.fvds.ru/images/faviconv2/apple-touch-icon.png">
+        <meta name="apple-mobile-web-app-title" content="CRM ПроМастер">
+        <link rel="manifest" href="https://alex23.fvds.ru/images/faviconv2/site.webmanifest">
+
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+        <script type="text/javascript" src="./jquery-1.11.1.min.js.завантаження"></script><script type="text/javascript" src="./jquery.inputmask.min.js.завантаження"></script><script type="text/javascript" src="./check-order-web.js.завантаження"></script><link rel="stylesheet" type="text/css" href="./font-awesome.min.css"><link rel="stylesheet" type="text/css" href="./bootstrap.css"><link rel="stylesheet" type="text/css" href="./style.css">    </head>
+    <body>
+    <div id="pm-wrap" style="margin: 10px;">
+                  <form id="pm-form" onsubmit="$(this).find(&#39;#pm-btn-check&#39;).trigger(&#39;click&#39;);return false;">
+             <input type="hidden" name="action" value="1">
+             <div class="rowy">
+                 <div class="col-sm-12">
+                     <div class="boxy">
+                         <div class="boxy-header pm23_title_check-form with-border">
+                             <h4 class="box-title">Просмотр информации о заказе </h4>
+                         </div>
+                         <div class="boxy-body">
+                                                                                                   <fieldset>
+                                         <input name="order_id" class="form-control" placeholder="Номер заказа" title="Укажите номер заказа указанный в квитанции" size="20" type="text">
+                                     </fieldset>
+                                                                                                                                    <fieldset>
+                                     <button id="pm-btn-check" type="button" onclick="PM_ADAPTER.sendForm(this);" class="btn btn-primary">Проверить</button>
+                                     <span class="pull-right" style="padding-top: 10px;" id="pm-power-block">
+                                         <a href="https://promaster.app/" target="_blank" style="color:#2b79c2">CRM ПроМастер</a>
+                                     </span>
+                                 </fieldset>
+                                                      </div>
+                     </div>
+                 </div>
+             </div>
+         </form>
+    </div>
+    <script>
+        $('[name="client_phone"]').inputmask("+7(999)999-99-99", {"placeholder": "+7(___)___-__-__"});
+    </script>
+ 
+
+</body></html>
